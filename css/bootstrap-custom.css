@@ -1,0 +1,127 @@
+@charset "utf-8";
+
+.img-responsive {
+	display: inline;
+}
+
+.navbar {
+  margin-bottom: 0;
+  border: none;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+	background-color: #eee;
+}
+.table {
+    margin-bottom: 0;
+	border-bottom: 1px solid #ddd;
+}
+.table th {
+	white-space: nowrap;
+}
+.scroll-table {
+	overflow: auto;
+	white-space: nowrap;
+}
+.scroll-table::-webkit-scrollbar {
+	height: 5px;
+}
+.scroll-table::-webkit-scrollbar-track {
+	background: #F1F1F1;
+}
+.scroll-table::-webkit-scrollbar-thumb {
+	background: #BCBCBC;
+}
+.scroll-table .table2 {
+	width: 100%;
+}
+.scroll-table .table2 th {
+	white-space: nowrap;
+}
+.scroll-table .table2 th,
+.scroll-table .table2 td {
+	text-align: center;
+	border: 1px solid #ddd;
+}
+@media (max-width: 767px) {
+    table.table.mb {
+        border: none !important;
+	}
+	table.table.mb th,
+	table.table.mb td {
+		display: block;
+	}
+	table.table.mb th {
+		white-space: normal;
+		padding-left: 0 !important;
+        border: none !important;
+        background-color: transparent !important;
+	}
+	table.table.mb td {
+		padding-top: 0 !important;
+		border-top: none !important;
+        border-right: none !important;
+        border-left: none !important;
+	}
+}
+
+@media (min-width: 768px) {
+	.btn-group-vertical a {
+		padding-top: 15px;
+		padding-bottom: 15px
+	}
+}
+
+.row-nopadding {
+	margin-left: 0;
+	margin-right: 0;
+}
+.row-nopadding > [class*="col-"] {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.row-gutter-10 {
+	margin-left: -5px;
+	margin-right: -5px;
+}
+.row-gutter-10 > [class*='col-'] {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.row-control {
+	letter-spacing: -0.4em;
+}
+.row-control > [class*='col-'] {
+	display: inline-block;
+	letter-spacing: 0;
+	float: none !important;
+}
+.row-control.va-middle > [class*='col-'] {
+	vertical-align: middle;
+}
+.row-control.va-bottom > [class*='col-'] {
+	vertical-align: bottom;
+}
+
+.btn-original {
+	padding: 14px 40px;
+	color: #fff;
+	background-color: #1576bf;
+	border: none;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	-webkit-transition: opacity 0.3s ease;
+	-moz-transition: opacity 0.3s ease;
+	transition: opacity 0.3s ease;
+}
+.btn-original:hover {
+	color: #fff;
+}
+.pc .btn-original:hover {
+	-webkit-opacity: 0.7;
+	-moz-opacity: 0.7;
+	opacity: 0.7;
+}

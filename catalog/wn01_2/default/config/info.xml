@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0" date="2010-10-01">
+	<author name="イージーゲート" link="http://www.ezgate.co.jp" />
+	<title>WN01用テンプレート</title>
+	<description>
+	WN01デフォルトのテンプレートです。
+	</description>
+	<modified>
+	<!-- 納品後の修正履歴を記述してください。 -->
+	</modified>
+	<fields>
+		<var name="name" type="text" use="1">
+			<title>管理用タイトル</title>
+			<attributes class="required" />
+			<description>※管理画面にて一覧表示されるタイトルになります。管理用タイトルは重複させることが出来ません。</description>
+		</var>
+<!--
+		<var name="page_title" type="text" use="1">
+			<title>ページタイトル</title>
+			<attributes class="copy-target" />
+			<description>※検索エンジンに知らせるカタログページの名前です。ブラウザのタブ部分にも表示されます。未入力にするとデフォルトの文字列が表示されるようになります。</description>
+		</var>
+		<var name="keywords" type="text" use="1">
+			<title>Keywords</title>
+			<attributes class="copy-target" />
+			<description>※検索エンジンに知らせるカタログページの関連キーワードです。カンマ（,）で区切って入力して下さい。未入力にするとデフォルトの文字列が表示されるようになります。</description>
+		</var>
+		<var name="description" type="text" use="1">
+			<title>Description</title>
+			<attributes class="copy-target" />
+			<description>※検索エンジンに知らせるカタログページの説明文です。未入力にすると設定されません。未入力にするとデフォルトの文字列が表示されるようになります。</description>
+		</var>
+-->
+<!--
+		<var name="permalink" type="text" use="1">
+			<title>ページURL</title>
+		</var>
+-->
+		<var name="enable" type="select" use="1">
+			<title>公開設定</title>
+			<options>
+				<Y>公開</Y>
+				<N>非公開</N>
+				<T>公開開始日時指定</T>
+			</options>
+			<default>Y</default>
+			<attributes />
+		</var>
+		<var name="start" type="datetime" use="1">
+			<title>公開開始日時</title>
+			<attributes class="datetimepicker required" />
+		</var>
+		<var name="date1" type="date" use="1">
+			<title>日付</title>
+			<attributes class="datepicker" />
+			<help>お知らせする日付を選択します。
+			日付は、表ページの日付に反映されます。</help>
+		</var>
+    <!--
+    ジャンル選択
+    
+    ジャンルを選択し、group by処理で一覧取得する機能
+    アイテム登録された情報から一覧取得するので、
+    項目の取得順に一覧表示する。（必ず選択肢の順番で取得できるものではない）
+    -->
+<!--
+		<var name="word11" type="select" use="1">
+			<title>ジャンル</title>
+			<options>
+				<A><value>選択項目1-1</value></A>
+				<B><value>選択項目1-2</value></B>
+				<C><value>選択項目1-3</value></C>
+				<D><value>選択項目1-4</value></D>
+			</options>
+			<default>選択項目1-1</default>
+			<help></help>
+			<attributes />
+		</var>
+-->
+
+		<var name="html1" type="tinymcearea" use="1">
+			<title>タイトル</title>
+			<attributes class="tinymcearea copy-target" cols="32" rows="10" />
+			<help>タイトル項目を入力します。
+			タイトル項目は複数行テキストと、HTMLエディタを使用してHTMLを記述可能です。
+			タイトルは、表ページに反映されます。</help>
+		</var>
+		<var name="new_mark" type="select" use="1">
+			<title>新着マーク</title>
+			<options>
+				<month>日付から一ヶ月間表示</month>
+				<two_weeks>日付から二週間表示</two_weeks>
+				<week>日付から一週間表示</week>
+				<N>表示しない</N>
+			</options>
+			<default>two_weeks</default>
+			<attributes />
+			<help>新着マークを表示する期間を選択してください。</help>
+		</var>
+	</fields>
+</layout>

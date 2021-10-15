@@ -1,0 +1,24 @@
+<?php echo $pc_header."\n"?>
+
+<?php
+foreach($data as $key => $value):
+?>
+【<?php echo $key;?>】
+<?php
+  if(is_array($value)) {
+    foreach($value as $k => $v) {
+      if     ($v === '')                    {}
+      elseif ($k === 'y' || $k === "\'y\'") { echo $v."年";}
+      elseif ($k === 'm' || $k === "\'m\'") { echo $v."月";}
+      elseif ($k === 'd' || $k === "\'d\'") { echo $v."日";}
+      elseif ($k === 't' || $k === "\'t\'") { echo $v."時";}
+      else                                  { echo $this->MailSend->check_kubun.$v."　";}
+    }
+    echo "\n\n";
+  } else {
+    echo $value."\n\n";
+  }
+endforeach;
+?>
+
+<?php echo $pc_footer;?>

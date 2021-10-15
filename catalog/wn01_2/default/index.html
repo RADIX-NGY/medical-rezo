@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ページタイトル</title>
+
+<?php
+// jQuery本体の読み込み
+// ページ内で、全てのjQueryプラグインに先駆けて、一度だけ読み込まれなければならない
+// デザインHTML内で重複してる事がよくあるので、バージョンの一番高い物に統一すること
+?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+<!-- colorbox -->
+<link media="screen" rel="stylesheet" href="<?php echo $html->url('/');?>colorbox/colorbox.css" />
+<script src="<?php echo $html->url('/');?>colorbox/jquery.colorbox.js"></script>
+<!-- colorbox -->
+<script>
+    // jQuery使用時、colorboxなどの各種jQueryプラグインや、ページ内で行うjavascriptの初期処理はこの中で行う
+    $(document).ready(function(){
+        // colorboxの呼び出し
+        $("a[rel^='colorbox']").colorbox({maxHeight:'95%'});
+
+        // colorboxの変則呼び出し 通常使わない
+        $("a[rel='slide']").colorbox({slideshow:true});
+
+        // colorboxとは何ら関係がない あるHTML要素をクリックした時にその要素のCSSを変更し、中身のテキストを変える、jQueryの例文と思われる
+        //Example of preserving a JavaScript event for inline calls.
+        $("#click").click(function(){
+            $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
+            return false;
+        });
+    });
+</script>
+<!-- // 初期処理系のscriptブロックは、なるべくheadの最後に入れる -->
+</head>
+<body>
+
+<?php echo $this->element('paging')?>
+
+<?php foreach($boxes as $box):extract($box['CatalogBox'],EXTR_PREFIX_ALL,'tbl');?>
+
+<?php echo date('Y年m月d日',strtotime($tbl_date1))?>
+
+<br />
+
+<?php echo $tbl_html1;?>
+
+<?php if ($tbl_new_mark):?>
+<?php echo $this->Ezm->getNewMark($tbl_new_mark, $tbl_date1, '<span style="color:red;">NEW!!</span>')?>
+<?php endif;?>
+
+<?php if ($tbl_image1):?>
+<a href="<?php echo $this->element('media', array('var'=>array('id'=>$tbl_image1,'width'=>480,'return'=>true)))?>" rel="colorbox" target="_blank"><?php echo $this->element('media', array('var'=>array('id'=>$tbl_image1,'width'=>200,'alt'=>$tbl_image1_alt)))?></a>
+
+<p>画像<br />
+レスポンシブでimg-responsiveなどのクラスがかかっていて、画像の大きさが変化する時のタグの出し方<br />
+重くなりすぎないようにwidthを制限している。
+適宜変更されたし</p>
+<p style="margin-bottom:10px;">
+<img src="<?php echo $this->element('media', array('var'=>array('id'=>$tbl_image1,'width'=>800,'return'=>true)));?>" alt="<?php echo $tbl_image1_alt;?>">
+</p>
+<?php endif;?>
+
+
+<br />
+
+<br />
+<br />
+<br />
+<?php
+  //使った変数を初期化
+  foreach($box['CatalogBox'] as $key=>$data){
+    ${'tbl_'.$key} = null;
+  }
+?>
+
+<?php endforeach;?>
+
+<?php
+// テンプレートのinfo.xml情報をこの変数に格納しています。
+pr($template_info);
+?>
+
+</body>
+</html>

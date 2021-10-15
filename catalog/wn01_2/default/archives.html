@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ページタイトル</title>
+</head>
+<body>
+<?php foreach($years as $year):$count=$year[0]['date1_count'];$year=$year[0]['year'];?>
+<?php if ($y === $year)://選択された年?>
+  <strong><?php echo $year?></strong>
+<?php else://それ以外の年?>
+  <a href="<?php echo $this->Html->url(array('action'=>'archives',$year))?>"><?php echo $year?>(<?php echo $count?>)</a>
+<?php endif;?>
+<?php endforeach;?>
+
+<?php echo $this->element('paging',array('var'=>array('url'=>array('action'=>'archives',$y))))?>
+
+<?php foreach($boxes as $box):extract($box['CatalogBox'],EXTR_PREFIX_ALL,'tbl');?>
+
+<?php echo date('Y年m月d日',strtotime($tbl_date1))?>
+
+<br />
+
+<?php echo $tbl_html1;?>
+
+<?php if ($tbl_new_mark):?>
+<?php echo $this->Ezm->getNewMark($tbl_new_mark, $tbl_date1, '<span style="color:red;">NEW!!</span>')?>
+<?php endif;?>
+
+<br />
+<br />
+<br />
+
+<?php endforeach;?>
+
+<?php
+// テンプレートのinfo.xml情報をこの変数に格納しています。
+pr($template_info);
+?>
+
+</body>
+</html>
